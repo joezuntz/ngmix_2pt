@@ -14,6 +14,6 @@ RUN mkdir /opt/ngmix_2pt  \
     && git clone https://github.com/joezuntz/ngmix_2pt
 
 ENV PYTHONPATH="/opt/ngmix_2pt/python:${PYTHONPATH}"
-ENV PATH="/opt/ngmix_2pt/bin.src:${PYTHONPATH}"
+ENV PATH="/opt/ngmix_2pt/bin.src:${PATH}"
 
 USER vagrant
