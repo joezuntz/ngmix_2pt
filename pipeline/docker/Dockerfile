@@ -1,0 +1,19 @@
+# We need to make a central version of the parent
+FROM joezuntz/desc-pipe-base:1.0
+
+# Install dependencies
+RUN apt-get install -y libffi-dev && apt-get clean
+
+RUN pip3 install TreeCorr twopoint
+
+
+# Add the github repo code.  If you need to change the actual install process that's no problem.
+# We don't install things centrally to make debugging easier.
+RUN mkdir /opt/ngmix_2pt  \
+    && cd /opt/ngmix_2pt \
+    && git clone https://github.com/joezuntz/ngmix_2pt
+
+ENV PYTHONPATH="/opt/ngmix_2pt/python:${PYTHONPATH}"
+ENV PATH="/opt/ngmix_2pt/bin.src:${PYTHONPATH}"
+
+USER vagrant
