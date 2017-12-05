@@ -1,1 +1,1 @@
-from ngmix_2pt import *
+from .ngmix_2pt import *
